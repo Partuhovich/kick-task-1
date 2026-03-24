@@ -12,13 +12,13 @@ public class ArrayEntity {
   private final ArrayEntityObserverImpl observer = new ArrayEntityObserverImpl();
 
 
-  public ArrayEntity(int size) {
+  public ArrayEntity(int size) throws CustomExeption {
     this.id = IdIncrementor.getNewId();
     this.array = new int[size];
     observer.create(this);
   }
 
-  public ArrayEntity(int[] array) {
+  public ArrayEntity(int[] array) throws CustomExeption {
     this.id = IdIncrementor.getNewId();
     this.array = Arrays.copyOf(array, array.length);
     observer.create(this);

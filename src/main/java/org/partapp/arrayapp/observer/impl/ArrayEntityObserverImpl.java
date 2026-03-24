@@ -1,6 +1,7 @@
 package org.partapp.arrayapp.observer.impl;
 
 import org.partapp.arrayapp.entity.ArrayEntity;
+import org.partapp.arrayapp.exeption.CustomExeption;
 import org.partapp.arrayapp.observer.ArrayEntityObserver;
 import org.partapp.arrayapp.repository.impl.ArrayRepositoryImpl;
 import org.partapp.arrayapp.service.ArrayEntityOperation;
@@ -14,7 +15,7 @@ public class ArrayEntityObserverImpl implements ArrayEntityObserver {
   ArrayEntityOperationImpl arrayOperation = new ArrayEntityOperationImpl();
 
   @Override
-  public void create(ArrayEntity array) {
+  public void create(ArrayEntity array) throws CustomExeption {
     repositoryObserver.add(array);
     warehouseObserver.put(array.getId(), getStats(array));
   }
