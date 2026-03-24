@@ -1,9 +1,7 @@
 package org.partapp.arrayapp.validator;
 
-import org.partapp.arrayapp.entity.ArrayEntity;
-
-public interface ArrayValidator {
-  boolean isArrayValid(String line);
+public interface StringValidator {
+  boolean isStringValid(String arrayLine);
 
   String getDelimeter();
 }

@@ -1,12 +1,13 @@
 package org.partapp.arrayapp.service.impl;
 
 import org.partapp.arrayapp.entity.ArrayEntity;
+import org.partapp.arrayapp.exeption.CustomExeption;
 import org.partapp.arrayapp.service.ArrayEntitySort;
 
 public class ArrayEntitySortImpl implements ArrayEntitySort {
 
   @Override
-  public void bubbleSort(ArrayEntity array) {
+  public void bubbleSort(ArrayEntity array) throws CustomExeption {
 
     if (array == null || array.getSize() == 0) {
       return;
@@ -31,7 +32,7 @@ public class ArrayEntitySortImpl implements ArrayEntitySort {
   }
 
   @Override
-  public void selectionSort(ArrayEntity array) {
+  public void selectionSort(ArrayEntity array) throws CustomExeption {
     if (array == null || array.getSize() == 0) {
       return;
     }

@@ -2,6 +2,7 @@ package org.partapp.arrayapp.service;
 
 import org.junit.jupiter.api.Test;
 import org.partapp.arrayapp.entity.ArrayEntity;
+import org.partapp.arrayapp.exeption.CustomExeption;
 import org.partapp.arrayapp.service.impl.ArrayEntitySortImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,13 +16,13 @@ public class SortServiceTest {
   private final ArrayEntity sortedArray = new ArrayEntity(sortedData);
 
   @Test
-  void bubble() {
+  void bubble() throws CustomExeption {
     arraySort.bubbleSort(testArray);
     assertEquals(sortedArray, testArray);
   }
 
   @Test
-  void selection() {
+  void selection() throws CustomExeption {
     arraySort.selectionSort(testArray);
     assertEquals(sortedArray, testArray);
   }

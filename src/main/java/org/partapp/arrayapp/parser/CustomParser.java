@@ -1,4 +1,5 @@
 package org.partapp.arrayapp.parser;
 
-public class CustomParser {
+public interface CustomParser {
+  int[] parseString(String arrayLine);
 }

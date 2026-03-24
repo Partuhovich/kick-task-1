@@ -1,20 +1,19 @@
 package org.partapp.arrayapp.validator.impl;
 
-import org.partapp.arrayapp.entity.ArrayEntity;
-import org.partapp.arrayapp.validator.ArrayValidator;
+import org.partapp.arrayapp.validator.StringValidator;
 
-public class ArrayValidatorImpl implements ArrayValidator {
+public class StringValidatorImpl implements StringValidator {
 
   private static final String NUMBER_REGEX = "^-?\\d+$";
   private static final String DELIMITER_REGEX = "\\s*[;,]\\s*|(?<=\\d)\\s*-\\s*(?=\\d)|\\s+";
 
   @Override
-  public boolean isArrayValid(String line) {
-    if (line == null || line.isBlank()) {
+  public boolean isStringValid(String arrayLine) {
+    if (arrayLine == null || arrayLine.isBlank()) {
       return false;
     }
 
-    String[] tokens = line.strip().split(DELIMITER_REGEX);
+    String[] tokens = arrayLine.strip().split(DELIMITER_REGEX);
 
     for (String token : tokens) {
       if (token.trim().isEmpty()) {

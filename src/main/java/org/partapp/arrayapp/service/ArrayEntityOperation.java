@@ -9,4 +9,6 @@ public interface ArrayEntityOperation {
   int max(ArrayEntity array);
 
   int sum(ArrayEntity array);
+
+  double average(ArrayEntity array);
 }
