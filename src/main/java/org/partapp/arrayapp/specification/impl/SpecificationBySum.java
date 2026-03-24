@@ -1,0 +1,4 @@
+package org.partapp.arrayapp.specification.impl;
+
+public class SpecificationBySum {
+}
