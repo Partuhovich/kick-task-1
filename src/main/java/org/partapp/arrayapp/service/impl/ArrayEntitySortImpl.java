@@ -1,14 +1,17 @@
 package org.partapp.arrayapp.service.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.partapp.arrayapp.entity.ArrayEntity;
 import org.partapp.arrayapp.exeption.CustomExeption;
 import org.partapp.arrayapp.service.ArrayEntitySort;
 
 public class ArrayEntitySortImpl implements ArrayEntitySort {
+  private static final Logger logger = LogManager.getLogger(ArrayEntitySortImpl.class);
 
   @Override
   public void bubbleSort(ArrayEntity array) throws CustomExeption {
-
+    logger.info("Bubble sorting");
     if (array == null || array.getSize() == 0) {
       return;
     }
@@ -33,6 +36,7 @@ public class ArrayEntitySortImpl implements ArrayEntitySort {
 
   @Override
   public void selectionSort(ArrayEntity array) throws CustomExeption {
+    logger.info("Selection sorting");
     if (array == null || array.getSize() == 0) {
       return;
     }

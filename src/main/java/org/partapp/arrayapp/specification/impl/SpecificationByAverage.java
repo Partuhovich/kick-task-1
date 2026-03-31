@@ -1,5 +1,7 @@
 package org.partapp.arrayapp.specification.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.partapp.arrayapp.entity.ArrayEntity;
 import org.partapp.arrayapp.specification.Specification;
 import org.partapp.arrayapp.warehouse.ArrayStats;
@@ -14,8 +16,7 @@ public class SpecificationByAverage implements Specification {
 
   @Override
   public boolean isSatisfiedBy(ArrayEntity entity) {
-    Warehouse warehouse = Warehouse.getInstance();
-    ArrayStats stats = warehouse.getById(entity.getId());
+    ArrayStats stats = Warehouse.getInstance().get(entity.getId());
     return  stats.getAverage() > average;
   }
 }

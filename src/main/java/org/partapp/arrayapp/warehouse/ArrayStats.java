@@ -1,5 +1,8 @@
 package org.partapp.arrayapp.warehouse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class ArrayStats {
   private int min;
   private int max;
@@ -17,31 +20,15 @@ public class ArrayStats {
     return min;
   }
 
-  public void setMin(int min) {
-    this.min = min;
-  }
-
   public int getMax() {
     return max;
-  }
-
-  public void setMax(int max) {
-    this.max = max;
   }
 
   public double getAverage() {
     return average;
   }
 
-  public void setAverage(double average) {
-    this.average = average;
-  }
-
   public int getSum() {
     return sum;
-  }
-
-  public void setSum(int sum) {
-    this.sum = sum;
   }
 }

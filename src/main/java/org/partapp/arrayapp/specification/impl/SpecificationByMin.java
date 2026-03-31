@@ -14,8 +14,7 @@ public class SpecificationByMin implements Specification {
 
   @Override
   public boolean isSatisfiedBy(ArrayEntity entity) {
-    Warehouse warehouse = Warehouse.getInstance();
-    ArrayStats stats = warehouse.getById(entity.getId());
+    ArrayStats stats = Warehouse.getInstance().get(entity.getId());
     return  stats.getMin() > min;
   }
 }

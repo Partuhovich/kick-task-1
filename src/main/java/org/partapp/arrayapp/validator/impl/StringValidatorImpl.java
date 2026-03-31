@@ -1,34 +1,23 @@
 package org.partapp.arrayapp.validator.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.partapp.arrayapp.validator.StringValidator;
+import org.partapp.arrayapp.warehouse.Warehouse;
 
 public class StringValidatorImpl implements StringValidator {
+  private static final Logger logger = LogManager.getLogger(StringValidatorImpl.class);
 
-  private static final String NUMBER_REGEX = "^-?\\d+$";
-  private static final String DELIMITER_REGEX = "\\s*[;,]\\s*|(?<=\\d)\\s*-\\s*(?=\\d)|\\s+";
+  String VALID_NUMERIC_STRING_REGEX= "^(?!.*-\\D)[\\d\\s,-]*$";
 
   @Override
   public boolean isStringValid(String arrayLine) {
+    logger.info("Validate string");
     if (arrayLine == null || arrayLine.isBlank()) {
+      logger.warn("String is null or blank");
       return false;
     }
 
-    String[] tokens = arrayLine.strip().split(DELIMITER_REGEX);
-
-    for (String token : tokens) {
-      if (token.trim().isEmpty()) {
-        continue;
-      }
-      if (!token.trim().matches(NUMBER_REGEX)) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  @Override
-  public String getDelimeter() {
-    return DELIMITER_REGEX;
+    return arrayLine.matches(VALID_NUMERIC_STRING_REGEX);
   }
 }

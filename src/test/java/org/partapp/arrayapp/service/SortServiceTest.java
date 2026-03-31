@@ -1,29 +1,43 @@
 package org.partapp.arrayapp.service;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.partapp.arrayapp.entity.ArrayEntity;
 import org.partapp.arrayapp.exeption.CustomExeption;
+import org.partapp.arrayapp.factory.impl.ArrayEntityFactoryImpl;
 import org.partapp.arrayapp.service.impl.ArrayEntitySortImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SortServiceTest {
 
-  private final ArrayEntitySortImpl arraySort = new ArrayEntitySortImpl();
-  private final int[] testData = {5, 2, 8, 1, 9, 3};
-  private final int[] sortedData = {1, 2, 3, 5, 8, 9};
-  private final ArrayEntity testArray = new ArrayEntity(testData);
-  private final ArrayEntity sortedArray = new ArrayEntity(sortedData);
+  private ArrayEntitySortImpl arraySort;
+  private ArrayEntity array;
 
-  @Test
-  void bubble() throws CustomExeption {
-    arraySort.bubbleSort(testArray);
-    assertEquals(sortedArray, testArray);
+  @BeforeEach
+  void setUp() throws CustomExeption {
+    ArrayEntityFactoryImpl factory = new ArrayEntityFactoryImpl();
+    arraySort = new ArrayEntitySortImpl();
+    array = factory.createArrayEntity(new int[]{4, 5, 8, 2, 7, 3});
   }
 
   @Test
-  void selection() throws CustomExeption {
-    arraySort.selectionSort(testArray);
-    assertEquals(sortedArray, testArray);
+  void testBubbleSort() throws CustomExeption {
+    arraySort.bubbleSort(array);
+
+    int[] expected = {2, 3, 4, 5, 7, 8};
+    for (int i = 0; i < expected.length; i++) {
+      assertEquals(expected[i], array.get(i));
+    }
+  }
+
+  @Test
+  void testSelectionSort() throws CustomExeption {
+    arraySort.selectionSort(array);
+
+    int[] expected = {2, 3, 4, 5, 7, 8};
+    for (int i = 0; i < expected.length; i++) {
+      assertEquals(expected[i], array.get(i));
+    }
   }
 }
